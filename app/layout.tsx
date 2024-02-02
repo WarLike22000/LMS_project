@@ -1,8 +1,16 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { Vazirmatn } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
 
-const inter = Inter({ subsets: ['latin'] })
+import './globals.css'
+import ToastProvider from '@/components/provider/toast-proviser'
+import { ConfettiProvider } from '@/components/provider/confettiProvider'
+
+const vazir = Vazirmatn({ 
+  subsets: ['arabic'],
+  weight: "600",
+  variable: "--font-vazir"
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +23,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="fa" dir='rtl'>
+        <body className={`${vazir.variable} font-vazir`}>
+          <ConfettiProvider />
+          <ToastProvider />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
