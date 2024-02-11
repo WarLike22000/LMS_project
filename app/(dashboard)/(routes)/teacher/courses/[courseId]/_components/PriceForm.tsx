@@ -111,7 +111,7 @@ const PriceForm: React.FC<PriceFormProps> = ({
                     "text-sm mt-2",
                     !initialData?.price && "text-slate-500 italic"
                 )}>
-                    {`${initialData?.price?.toLocaleString()} تومان` || "قیمتی وجود ندارد"}
+                    {initialData?.price ? `${initialData?.price?.toLocaleString()} تومان` : "قیمتی وجود ندارد"}
                 </p>
             )}
         </div>

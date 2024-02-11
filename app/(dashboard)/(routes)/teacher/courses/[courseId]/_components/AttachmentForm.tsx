@@ -78,7 +78,7 @@ const AttachmentForm: React.FC<AttachmentFormProps> = ({
                 <>
                     {initialData.attachments.length === 0 && (
                         <p className="text-sm mt-2 text-slate-500 italic">
-                            هنوز فایلی وجود تدارد
+                            هنوز فایلی وجود ندارد
                         </p>
                     )}
 
