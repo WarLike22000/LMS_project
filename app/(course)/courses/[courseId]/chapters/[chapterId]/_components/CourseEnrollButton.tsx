@@ -1,5 +1,6 @@
 "use client";
 
+import { ConfirmModal } from "@/components/modals/ConfirmModal";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -35,14 +36,15 @@ const CourseEnrollButton = ({
     };
     
     return ( 
-        <Button
-            onClick={onClick}
-            disabled={isLoading}
-            size="sm"
-            className="w-full md:w-auto"
-        >
-            قیمت ثبت نام {price.toLocaleString()}
-        </Button>
+        <ConfirmModal onConfirm={onClick}>
+            <Button
+                disabled={isLoading}
+                size="sm"
+                className="w-full md:w-auto"
+            >
+                قیمت ثبت نام {price.toLocaleString()}
+            </Button>
+        </ConfirmModal>
      );
 }
  
