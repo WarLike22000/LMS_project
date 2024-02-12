@@ -19,8 +19,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Chapter } from "@prisma/client";
-import { Editor } from "@/components/editor";
-import { Preview } from "@/components/preview";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ChapterDescriptionFormProps {
     initialData: Chapter;
@@ -88,7 +87,9 @@ const ChapterDescriptionForm: React.FC<ChapterDescriptionFormProps> = ({
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Editor
+                                        <Textarea
+                                            disabled={isSubmitting}
+                                            placeholder="توضیحات"
                                             {...field}
                                         />
                                     </FormControl>
@@ -113,9 +114,9 @@ const ChapterDescriptionForm: React.FC<ChapterDescriptionFormProps> = ({
                 )}>
                     {!initialData.description && "توضیحی وجود ندارد"}
                     {initialData.description && (
-                        <Preview
-                            value={initialData.description}
-                        />
+                        <p>
+                            {initialData.description}
+                        </p>
                     )}
                 </p>
             )}

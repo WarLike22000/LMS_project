@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import VideoPlayer from "./_components/VideoPlayer";
 import CourseEnrollButton from "./_components/CourseEnrollButton";
 import { Separator } from "@/components/ui/separator";
-import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
 import CourseProgressButton from "./_components/CourseProgressButton";
 
@@ -85,9 +84,9 @@ const ChapterIdPage = async ({
                         )}
                     </div>
                     <Separator />
-                    <div>
-                        <Preview value={chapter.description!}/>
-                    </div>
+                    <p className="text-justify p-2">
+                        {chapter.description}
+                    </p>
                     {!!attachments.length && (
                         <>
                             <Separator />
